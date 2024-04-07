@@ -1,0 +1,151 @@
+.landing-section {
+  margin-top: 130px;
+}
+
+.landing__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.landing-advantages {
+  max-width: 666px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.advantages-list {
+  display: flex;
+  gap: 10px;
+}
+
+.advantages-list li {
+  font-weight: 500;
+  font-size: 16px;
+  color: #c369d1;
+  background: rgba(195, 105, 209, 0.2);
+  border: 1px solid #c369d1;
+  border-radius: 50px;
+  padding: 10px 28px;
+  line-height: 140%;
+
+}
+
+.advantages-list li:nth-child(2) {
+  color: #fe024c;
+  background: linear-gradient(90deg, rgba(254, 1, 75, 0.2) 0%, rgba(210, 21, 76, 0.2) 100%);
+  border: 1px solid #fe024c;
+}
+
+.advantages-list li:nth-child(3) {
+  color: #ff8a56;
+  background: rgba(255, 138, 86, 0.2);
+  border: 1px solid #ff8a56;
+}
+
+.advantages-title {
+  line-height: 140%;
+  font-weight: 600;
+  font-size: 54px;
+  color: var(--black);
+}
+
+.advantages-description {
+  line-height: 140%;
+  font-size: 20px;
+  color: var(--black);
+}
+
+.advantages-link {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--white);
+
+  line-height: 140%;
+  width: fit-content;
+  border-radius: 9px;
+  padding: 17px 22px;
+  background: linear-gradient(90deg, #fe014b 0%, #d2154c 100%);
+  margin-top: 10px;
+  transition: all .2s;
+  border: 1px solid transparent;
+}
+
+.advantages-link:hover {
+  color: #d2154c;
+  border: 1px solid #d2154c;
+  background: transparent;
+
+}
+
+.landing-decorEl {
+  position: relative;
+  width: 850px;
+  height: 555px;
+}
+
+.landing-decor-gradient {
+  position: absolute;
+  transform: translate(50px, 50px);
+
+  border-radius: 611px;
+  width: 450px;
+  height: 510px;
+
+  filter: blur(205px);
+  background: linear-gradient(90deg, #b16cef 0%, #ff5e69 33.5%, #ff8a56 73%, #ffa84b 100%);
+
+  animation-duration: 4s;
+  animation-delay: 0s;
+  animation-name: animationGradient;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animationGradient {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+
+}
+
+.landing-decor-dots {
+  position: absolute;
+  transform: translate(-30px, 20px);
+}
+
+.landing-decor-img {
+  position: absolute;
+  transform: translate(50px, 50px);
+  animation-duration: 4s;
+  animation-delay: 0s;
+  animation-name: animationImg;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animationImg {
+  0% {
+    top: 0;
+  }
+
+  50% {
+    top: -30px;
+  }
+
+  75% {
+    top: 0;
+  }
+}

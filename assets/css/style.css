@@ -1,0 +1,84 @@
+@import "profile.css";
+@import "category.css";
+@import "system_level.css";
+@import "contacts.css";
+@import "reviews.css";
+@import "create_review.css";
+@import "create_places.css";
+@import "setting.css";
+@import "home.css";
+@import "landing.css";
+@import "auth.css";
+@import "footer.css";
+@import "global.css";
+@import "reset.css";
+
+.header {
+  margin-top: 50px;
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left-part {
+}
+
+.header-right-part {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.header_list {
+  display: flex;
+  gap: 42px;
+}
+
+.header_list a li {
+  font-size: 15px;
+  color: var(--black);
+  transition: all .2s;
+}
+
+.header_list a li:hover {
+  color: #fe014b;
+}
+
+.header-login {
+  position: relative;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fe014b;
+
+  border: 1px solid #fe014b;
+  border-radius: 500px;
+  padding: 13px 20px;
+
+  align-items: center;
+  gap: 7px;
+  display: flex;
+
+  transition: all .3s;
+}
+
+.header-login:before {
+  content: "";
+  background: url("../images/user-icon.svg");
+  width: 18px;
+  height: 18px;
+  display: block;
+  transition: all .3s;
+}
+
+.header-login:hover {
+  border: 1px solid transparent;
+  background: #fe014b;
+  color: var(--white);
+}
+
+.header-login:hover:before {
+  background: url("../images/user-icon-white.svg");
+}
