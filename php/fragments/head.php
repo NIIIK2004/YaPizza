@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReView - Отзывы</title>
+    <title>Япицца - Доставка по городу</title>
     <link rel="shortcut icon" href="../assets/images/icon.ico" type="images/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,36 +14,40 @@
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
+<style>
+    footer {
+        position: absolute;
+    bottom: 0;   
+    }
+</style>
+
 <header class="header">
     <div class="container">
         <div class="header__wrapper">
             <div class="header-left-part">
-                <a href="home.php">
+                <a href="category.php">
                     <img src="../assets/images/logo.svg" alt="logo">
                 </a>
             </div>
             <div class="header-right-part">
                 <ul class="header_list">
-                    <a href="/php/home.php">
-                        <li>Главная</li>
+                    <a href="search.php">
+                        <li><img src="../assets/images/header/search.svg"></li>
                     </a>
-                    <a href="/php/FAQ.php">
-                        <li>FAQ</li>
+                    <a href="home.php">
+                        <li><img src="../assets/images/header/category.svg"></li>
                     </a>
-                    <a href="/php/contacts.php">
-                        <li>Контакты</li>
+                    <a href="info.php">
+                        <li><img src="../assets/images/header/info.svg"></li>
                     </a>
-                    <a href="/php/system_level.php">
-                        <li>Достижения</li>
+                    <a href="basket.php">
+                        <li><img src="../assets/images/header/basket.svg"></li>
                     </a>
+                    <a href="profile.php">
+                        <li><img src="../assets/images/header/user.svg"></li>
+                    </a>
+                    
                 </ul>
-                <?php
-                if (isset($_SESSION['user_id'])) {
-                    echo '<a class="header-login" href="profile.php">Профиль</a>';
-                } else {
-                    echo '<a class="header-login" href="authorization.php">Войти</a>';
-                }
-                ?>
             </div>
         </div>
     </div>

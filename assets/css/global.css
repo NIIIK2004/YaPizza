@@ -5,13 +5,13 @@
 }
 
 :root {
-  --black: #1D1D1F;
-  --white: #f2f2f2;
-  --gray: #717173;
-  --background-for-block: #e3e3e3;
-  --gradient-orange: linear-gradient(#B16CEF, #FF5E69, #FF8A56, #FFA84B);
-  --gradient-cherry: linear-gradient(#FE014B, #D2154C);
-  --gradient-for-input: linear-gradient(90deg, rgba(231, 231, 231, 0.10), rgba(152, 152, 152, 0.10));
+  --black: #131313;
+  --red: #FB4A36;
+  --gray: #595959;
+  --white: #FFFCF5;
+  --green: #30372A;
+  --block: #F4F0E7;
+  --gray-two: #D1CEC9;
 }
 
 a {
@@ -28,22 +28,28 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'helvetica_regular';
   font-size: 16px;
   font-weight: 400;
   line-height: 140%;
   color: var(--black);
+  background: var(--white);
 }
 
 .container {
-  max-width: 1668px;
+  max-width: 1620px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 5px;
 }
 
 
 .title {
-  font-weight: 600;
-  font-size: 18px;
-  color: var(--white);
+  font-family: "Gogh";
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--black);
+}
+
+img {
+  width: 100%;
 }

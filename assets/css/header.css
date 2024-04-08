@@ -1,0 +1,27 @@
+.header {
+    padding: 27px 10px;
+    border-bottom: 1px solid #D1CEC9;
+    border-radius: 10px;
+}
+
+.header__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_list {
+    display: flex;
+    align-items: center;
+    gap: 29px;
+}
+
+.header_list a li {
+    opacity: 0.9;
+    transition: all .3s;
+}
+
+.header_list a li:hover {
+    transform: scale(1.25);
+    opacity: 1;
+}

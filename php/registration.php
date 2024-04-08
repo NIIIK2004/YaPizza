@@ -1,38 +1,43 @@
 <?php
-require_once 'includes/db.php';
 session_start();
 
-if (isset($_SESSION["user_id"])) {
-    header("Location: profile.php");
-    exit();
-}
+include '../php/includes/database.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $personal_promo_code = $_POST['personal_promo_code'];
+    $phone_number = $_POST['phone_number'];
     $name = $_POST['name'];
-    $surname = $_POST['surname'];
-    $email = $_POST['email'];
     $password = $_POST['password'];
-
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
-    $user_level = 1;
-    $insertQuery = "INSERT INTO users (first_name, last_name, email, password, level) VALUES (?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($insertQuery);
-    $stmt->bind_param('ssssi', $name, $surname, $email, $hashedPassword, $user_level);
-    if ($stmt->execute()) {
-        $_SESSION["user_id"] = $stmt->insert_id;
-        $_SESSION['role'] = $user['role'];
-        $_SESSION['user_name'] = $name;
-        $_SESSION['user_surname'] = $surname;
-        $_SESSION['user_email'] = $email;
-
-        header("Location: profile.php");
+    $confirm_password = $_POST['confirm_password'];
+    $delivery_address = $_POST['delivery_address'];
+    
+    if ($password !== $confirm_password) {
+        flash("Пароли не совпадают");
+        header("Location: registration.php");
         exit();
     }
-}
+    
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    
+    $stmt_check_phone = pdo()->prepare("SELECT * FROM Users WHERE phone_number = ?");
+    $stmt_check_phone->execute([$phone_number]);
+    $user = $stmt_check_phone->fetch(PDO::FETCH_ASSOC);
+    
+    if ($user) {
+        flash("Номер телефона уже используется. Пожалуйста, укажите другой номер.");
+        header("Location: registration.php");
+        exit();
+    }
+    
+    $stmt = pdo()->prepare("INSERT INTO Users (personal_promo_code, phone_number, name, password, delivery_address, registration_date) VALUES (?, ?, ?, ?, ?, NOW())");
+    $stmt->execute([$personal_promo_code, $phone_number, $name, $hashed_password, $delivery_address]);
 
-$conn->close();
+    flash("Регистрация прошла успешно! Можете войти на сайт.");
+    header("Location: auth.php");
+    exit();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -41,7 +46,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReView - Регистрация</title>
+    <title>Регистрация</title>
     <link rel="shortcut icon" href="../assets/images/icon.ico" type="images/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -61,45 +66,25 @@ $conn->close();
     </div>
 </header>
 
-<body style="background: var(--black)">
-<div class="auth__wrapper">
-    <div class="landing-decor-gradient"></div>
-    <form action="registration.php" method="post" class="auth__wrapper-form">
-        <div class="auth__title">
-            <h1>Создайте свой аккаунт</h1>
-            <div class="auth__title-link">
-                <span>Есть аккаунт?</span>
-                <a href="authorization.php">Войдите!</a>
-            </div>
-        </div>
-        <ul class="auth__input">
-            <li onclick="activateInput(this)">Имя: <input type="text" id="name" name="name" required
-                                                          placeholder="Например Никита"></li>
-            <li onclick="activateInput(this)">Фамилия: <input type="text" id="surname" name="surname" required
-                                                              placeholder="Ну словно Мешков"></li>
-            <li onclick="activateInput(this)">Почта: <input type="email" id="email" name="email" required
-                                                            placeholder="Может свою? А не чужую"></li>
-            <li onclick="activateInput(this)">Пароль: <input type="password" id="password" name="password" required
-                                                             placeholder="Придумайте сложный)"></li>
-        </ul>
-        <span class="auth__warn">При регистрации вы получаете второй уровень (+2) сразу</span>
-        <div class="block_politika">
-            <input type="checkbox" id="test2" checked="checked"/>
-            <label for="test2">Регистрируясь вы соглашаетесь с политикой сервиса</label>
-        </div>
-        <button class="auth__btn" type="submit">Создать аккаунт</button>
-    </form>
-</div>
+<body>
+    <div class="auth__wrapper">
+        <div class="landing-decor-gradient"></div>
+        <?php flash(); ?>
+        <form action="registration.php" method="POST">
+            <label for="personal_promo_code">Персональный Промокод:</label><br>
+            <input type="text" id="personal_promo_code" name="personal_promo_code" required><br>
+            <label for="phone_number">Номер телефона:</label><br>
+            <input type="text" id="phone_number" name="phone_number" required><br>
+            <label for="name">Имя:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <label for="password">Пароль:</label><br>
+            <input type="password" id="password" name="password" required><br>
+            <label for="confirm_password">Подтверждение пароля:</label><br>
+            <input type="password" id="confirm_password" name="confirm_password" required><br>
+            <label for="delivery_address">Адрес доставки:</label><br>
+            <input type="text" id="delivery_address" name="delivery_address" required><br>
+            <input type="submit" value="Зарегистрироваться">
+        </form>
+    </div>
 
 </body>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init();
-
-    function activateInput(li) {
-        let input = li.querySelector('input');
-        input.focus();
-        li.classList.toggle('clicked');
-    }
-</script>
