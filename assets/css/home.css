@@ -26,3 +26,138 @@
   border-radius: 500px;
   padding: 18px 22px;
 }
+
+.category-pizza {}
+
+.product_list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+  margin-top: 55px;
+}
+
+.product_list a {
+  margin-top: auto;
+}
+
+.product_links {}
+
+.product {
+  position: relative;
+  border-radius: 20px;
+  width: 300px;
+  height: 429px;
+  background: var(--block);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.product_wrapper-for-image {
+  position: absolute;
+  width: 175px;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  margin: -70px 0px 0px 0px;
+}
+
+.product_image:nth-child(1) {
+  margin-left: -47px;
+  margin-top: 45px;
+}
+
+.product_image:nth-child(2) {
+  margin-left: 63px;
+  margin-bottom: 44px;
+}
+
+.product_image {
+  width: 175px;
+  object-fit: cover;
+}
+
+.product_name {
+  font-family: 'Soyuz Grotesk';
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 120%;
+  color: var(--black);
+}
+
+.product_desc {
+  font-family: 'helvetica_regular';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  color: var(--gray);
+  margin-top: 12px;
+  max-height: 81px;
+  overflow: hidden;
+}
+
+.product_cost {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product_cost p {}
+
+.product_cost p {
+  font-family: 'Gogh';
+  font-weight: 800;
+  font-size: 26px;
+  color: var(--black);
+}
+
+.product_admin-add-btn {
+  border: 2px dashed var(--green);
+  border-radius: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-family: 'helvetica_regular';
+  font-weight: 700;
+  transition: all .3s;
+}
+
+.product_admin-add-btn:hover {
+  transform: scale(.97);
+}
+
+.add_card-btn {
+  background: url("../images/home/icon-add-basket.svg") no-repeat;
+  width: 44px;
+  height: 44px;
+  border: transparent;
+  cursor: pointer;
+}
+
+.product_wrapper-drinks {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-20%, -90%);
+}
+
+.category-donat {
+  margin-bottom: 80px;
+}
+
+.delete_admin {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 12px;
+  background: #f6d7cd;
+  cursor: pointer;
+}
+
+.ads-banner {
+  margin-top: 50px;
+}

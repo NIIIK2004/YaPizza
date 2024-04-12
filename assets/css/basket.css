@@ -1,0 +1,271 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.checkout-section {
+    margin-top: 80px;
+}
+
+.checkout-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkout-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 55px;
+}
+
+.checkout-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 960px;
+    width: 100%;
+}
+
+.checkout-item {
+    border-radius: 30px;
+    background: var(--block);
+    padding: 11px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkout-item-left {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.checkout-item-right {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.checkout-item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.checkout-item-info {}
+
+.checkout-item-info h2 {
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 19px;
+    line-height: 140%;
+    color: var(--black);
+}
+
+.checkout-item-info span {
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 23px;
+    color: var(--black);
+    margin-top: 5px;
+}
+
+.checkout-item-price {}
+
+.checkout-item-quantity {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.checkout-item-quantity-btn {
+    background: var(--white);
+    border-radius: 7px;
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 15px;
+    color: #000;
+
+    border: 1px solid transparent;
+    outline: none;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.checkout-item-quantity-input {
+    font-family: 'Gogh';
+    text-align: center;
+    font-weight: 800;
+    font-size: 16px;
+    color: #000;
+
+    border-radius: 7px;
+    padding: 9px 22px;
+    width: 80px;
+    height: 40px;
+
+    background: var(--white);
+    border: 1px solid transparent;
+    outline: none;
+    transition: all .3s;
+
+}
+
+.checkout-item-quantity-btn:focus,
+.checkout-item-quantity-input:focus {
+    border: 1px solid var(--black);
+}
+
+
+.summary {
+    padding: 42px 22px 22px 22px;
+    max-width: 630px;
+    border-radius: 30px;
+    background: var(--block);
+    width: 100%;
+    height: 406px;
+}
+
+.summary-title {
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 23px;
+    line-height: 140%;
+    color: #000;
+}
+
+.summary-value {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-value span {
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 140%;
+    color: var(--gray);
+}
+
+.summary-title,
+.summary-value,
+.summary-promocode,
+.summary-skidka,
+.summary-summa {
+    padding: 0 20px;
+}
+
+.summary-promocode {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.summary-promocode input {
+    font-family: 'Gogh';
+    border-radius: 20px;
+    width: 100%;
+    background: var(--white);
+    padding: 24px 30px;
+    outline: none;
+    border: 1px solid transparent;
+}
+
+.summary-promocode button {
+    outline: none;
+    border: 1px solid transparent;
+    background: url("../images/basket/done-promo.svg") no-repeat;
+    width: 90px;
+    height: 70px;
+    cursor: pointer;
+}
+
+.summary-skidka {
+    margin-top: 19px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-skidka span {
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 140%;
+    color: var(--green);
+}
+
+.slidka-value {
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 140%;
+    text-align: right;
+    color: var(--green);
+}
+
+.summary-summa {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.summary-summa span {
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 140%;
+    color: var(--green);
+}
+
+.summa-value {
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 140%;
+    text-align: right;
+    color: var(--green);
+}
+
+.summary-btn {
+    width: 100%;
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 140%;
+    color: var(--white);
+    border-radius: 15px;
+    background: var(--green);
+    margin-top: 20px;
+    border: 1px solid transparent;
+    transition: all .3s;
+    padding: 18.5px;
+    cursor: pointer;
+}
+
+.summary-btn:hover {
+    border: 1px solid var(--green);
+    background: transparent;
+    color: var(--green);
+}
+
+.delete_all{
+    border: transparent;
+    color: rgb(165, 9, 9);
+    outline: none;
+    background-color: transparent;
+    font-size: 21px;
+    cursor: pointer;
+}

@@ -1,6 +1,12 @@
 <?php
 ?>
 
+<style>
+    footer {
+        position: unset !important;
+        bottom: 0;
+    }
+</style>
 <?php include '../php/fragments/head.php'; ?>
 
 <body>
@@ -12,7 +18,7 @@
                     <h1 class="landing-title">Ароматы, которые говорят громче слов</h1>
                     <p class="landing-description">Творческий и выразительный способ передать идею о том, что вкус и впечатления от еды в конкретном ресторане исключительны, самобытны и приносят удовлетворение.</p>
                     <div class="landing-btns">
-                        <a href="#">Заказать</a>
+                        <a href="auth.php">Заказать</a>
                         <a href="#">Как мы готовим?</a>
                     </div>
                 </div>

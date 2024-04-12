@@ -3,7 +3,6 @@ session_start();
 include '../php/includes/database.php';
 
 if (!isset($_SESSION['user_id'])) {
-    // Если нет, перенаправляем на страницу авторизации
     header("Location: auth.php");
     exit();
 }
@@ -23,7 +22,10 @@ include '../php/fragments/head.php';
     <section class="profile">
         <div class="container">
             <div class="profile__wrapper">
+            <div class="profile__wrapper-top">
                 <h1 class="title">Мой аккаунт</h1>
+                <a href="logout.php">Выйти из аккаунта</a>
+            </div>
 
                 <ul class="profile_list">
                     <li>

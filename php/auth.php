@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['auth'])) {
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['name'] = $user['name'];
+        $_SESSION['role'] = $user['role'];
 
         header("Location: profile.php");
         exit();
@@ -40,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['auth'])) {
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
-<header class="header">
+<!-- <header class="header">
     <div class="container">
         <div class="header__wrapper">
             <div class="header-left-part" style="margin: 0 auto;">
@@ -50,17 +51,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['auth'])) {
             </div>
         </div>
     </div>
-</header>
+</header> -->
 
-<body>
+<body style="background-color: #30372A;">
     <div class="auth__wrapper">
-        <div class="landing-decor-gradient"></div>
-        <?php flash(); ?>
-
+        <h1 class="auth__title">Спокойно, это лишь Авторизация</h1>
         <form action="" method="post" class="auth__wrapper-form">
-            <input type="text" id="phone_number" name="phone_number" required><br>
-            <input type="text" name="name" placeholder="Имя" required>
+            <input type="text" id="phone_number" name="phone_number" required placeholder="Ваш номер телефона">
+            <input type="text" name="name" placeholder="Ваше Имя" required>
             <input type="password" name="password" placeholder="Пароль" required>
+            <a href="registration.php">Зарегистрироваться!</a>
+            <div class="alert-2"><?php flash(); ?></div>
             <button class="auth__btn" type="submit" name="auth">Войти</button>
         </form>
     </div>

@@ -35,7 +35,6 @@
   object-fit: cover;
 }
 
-
 .profile_info {
   font-weight: 600;
   font-size: 34px;
@@ -48,4 +47,14 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.profile__wrapper-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile__wrapper-top a {
+  color: var(--red);
 }

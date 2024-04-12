@@ -10,28 +10,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
     $delivery_address = $_POST['delivery_address'];
-    
+
     if ($password !== $confirm_password) {
         flash("Пароли не совпадают");
         header("Location: registration.php");
         exit();
     }
-    
+
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    
+
     $stmt_check_phone = pdo()->prepare("SELECT * FROM Users WHERE phone_number = ?");
     $stmt_check_phone->execute([$phone_number]);
     $user = $stmt_check_phone->fetch(PDO::FETCH_ASSOC);
-    
+
     if ($user) {
         flash("Номер телефона уже используется. Пожалуйста, укажите другой номер.");
         header("Location: registration.php");
         exit();
     }
-    
-    $stmt = pdo()->prepare("INSERT INTO Users (personal_promo_code, phone_number, name, password, delivery_address, registration_date) VALUES (?, ?, ?, ?, ?, NOW())");
+
+    $stmt = pdo()->prepare("INSERT INTO Users (personal_promo_code, phone_number, name, password, delivery_address, registration_date, role) VALUES (?, ?, ?, ?, ?, NOW(), 'user')");
     $stmt->execute([$personal_promo_code, $phone_number, $name, $hashed_password, $delivery_address]);
 
+    $_SESSION['role'] = $user['role'];
+
+    
     flash("Регистрация прошла успешно! Можете войти на сайт.");
     header("Location: auth.php");
     exit();
@@ -54,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
-<header class="header">
+<!-- <header class="header">
     <div class="container">
         <div class="header__wrapper">
             <div class="header-left-part" style="margin: 0 auto;">
@@ -64,27 +67,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </div>
-</header>
+</header> -->
 
-<body>
+<body style="background-color: #30372A;">
     <div class="auth__wrapper">
-        <div class="landing-decor-gradient"></div>
-        <?php flash(); ?>
-        <form action="registration.php" method="POST">
-            <label for="personal_promo_code">Персональный Промокод:</label><br>
-            <input type="text" id="personal_promo_code" name="personal_promo_code" required><br>
-            <label for="phone_number">Номер телефона:</label><br>
-            <input type="text" id="phone_number" name="phone_number" required><br>
-            <label for="name">Имя:</label><br>
-            <input type="text" id="name" name="name" required><br>
-            <label for="password">Пароль:</label><br>
-            <input type="password" id="password" name="password" required><br>
-            <label for="confirm_password">Подтверждение пароля:</label><br>
-            <input type="password" id="confirm_password" name="confirm_password" required><br>
-            <label for="delivery_address">Адрес доставки:</label><br>
-            <input type="text" id="delivery_address" name="delivery_address" required><br>
-            <input type="submit" value="Зарегистрироваться">
+        <h1 class="auth__title">Спокойно, это лишь регистрация</h1>
+        <form action="registration.php" method="POST" class="auth__wrapper-form">
+            <input type="text" id="personal_promo_code" name="personal_promo_code" required placeholder="Персональный Промокод:">
+            <input type="text" id="phone_number" name="phone_number" required placeholder="Ваш номер телефона">
+            <input type="text" name="name" placeholder="Ваше Имя" required>
+            <input type="password" name="password" placeholder="Пароль" required>
+            <input type="password" id="confirm_password" name="confirm_password" required placeholder="Подтверждение пароля:">
+            <input type="text" id="delivery_address" name="delivery_address" required placeholder="Адрес доставки:">
+
+
+            <a href="auth.php">Есть аккаунт уже?</a>
+            <div class="alert-2"><?php flash(); ?></div>
+            <button class="auth__btn" type="submit" name="auth">Зарегистрироваться</button>
         </form>
     </div>
-
 </body>

@@ -4,7 +4,7 @@ session_start();
 
 session_destroy();
 
-header("Location: authorization.php");
+header("Location: auth.php");
 exit();
 
 

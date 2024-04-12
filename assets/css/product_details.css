@@ -1,0 +1,158 @@
+.product_details_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+
+.product_details_wrapper img {
+    width: 280px;
+}
+
+.product_details-left {
+    border-radius: 140px 42px;
+    width: 430px;
+    height: 460px;
+    background: var(--block);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.product_details-left p {
+    position: absolute;
+    top: 20.5px;
+    right: 20px;
+    border-radius: 170px;
+    padding: 15px 22px;
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--red);
+    background: var(--white);
+}
+
+.product_details-middle {
+    max-width: 604px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.product_details-title {
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 58px;
+    line-height: 140%;
+    color: var(--black);
+}
+
+.product_details-description {
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 19px;
+    line-height: 170%;
+    color: var(--gray);
+}
+
+.product_details-cost {
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 40px;
+    color: var(--black);
+}
+
+.product_details-middle-bottom {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.product_details-view {
+    gap: 5px;
+    display: flex;
+}
+
+.product_details-view span {
+    border-radius: 170px;
+    padding: 15px 22px;
+    background: var(--block);
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--red);
+    display: block;
+}
+
+.product_details-right {
+    border: 1px solid var(--green);
+    border-radius: 40px;
+    width: 430px;
+    height: 460px;
+    background: var(--block);
+    padding: 35px 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.product_details-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 38px 45px;
+}
+
+.product_details-info li {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 27px;
+    line-height: 140%;
+    color: var(--green);
+}
+
+.product_details-info li span {
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 140%;
+    color: var(--gray);
+    font-family: 'Gogh';
+}
+
+.add_basket-btn {
+    border-radius: 15px;
+    width: 348px;
+    height: 62px;
+    background: var(--green);
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 140%;
+    color: var(--white);
+    width: 100%;
+    display: block;
+    padding: 18.5px;
+    transition: all .3s;
+    text-align: center;
+    margin-top: auto;
+}
+
+.add_basket-btn:hover {
+    background: #455935;
+}
+
+.product_details-right-title {
+    font-family: 'Gogh';
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 140%;
+    color: var(--green);
+}
+
+.products_other {
+    margin-top: 120px;
+}
